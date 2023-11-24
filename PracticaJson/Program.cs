@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using PracticaJson.Solutions.Ejercicio_3;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace PracticaJson
@@ -38,7 +39,8 @@ namespace PracticaJson
 
 
             //EJERCICIO2--------------------------
-            
+
+            /*
             Ejercicio2 ejercicio = JsonSerializer.Deserialize<Ejercicio2>(ejercicio2);
             Console.WriteLine(ejercicio.usuario);
             foreach (string amigos in ejercicio.AmigosDeUsuario)
@@ -47,13 +49,58 @@ namespace PracticaJson
 
             }
             Console.WriteLine(ejercicio.notificacionesDeUsuario);
-            
+            */
+
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = true
+            };
 
 
+            //EJERCICIO3-------------------------//
+            /*
+            ResumenEjercicio3 estadistica = JsonSerializer.Deserialize<ResumenEjercicio3>(ejercicio3, options)!;
+            foreach(var equipo in estadistica.Estadistica)
+            {
+                Console.WriteLine($"Equipo {equipo.Nombre}");
+                Console.WriteLine($"Campeon {equipo.Campeon}");
+
+                foreach(var jugador in equipo.Jugadores)
+                {
+                    Console.WriteLine($"  nombre {jugador.Nombre}");
+                    Console.WriteLine($"  kills {jugador.Kills}");
+                    Console.WriteLine($"  death {jugador.Death}");
+                }
+                
+            }
+            */
 
 
-            //EJERCICIO3-------------------------
-            //Ejercicio3 ejercicio = JsonSerializer.Deserialize<Ejercicio3>(ejercicio3);
+            //EJERCICIO4------------------------------------//
+            Catalogo catalogo = JsonSerializer.Deserialize<Catalogo>(ejercicio4 , options)!;
+
+
+            foreach(var producto in catalogo.Productos)
+            {
+                Console.WriteLine(producto.Nombre);
+                Console.WriteLine(producto.Precio);
+                Console.WriteLine(producto.Existencia);
+                Console.WriteLine(producto.DescuentoDisponible);
+                Console.WriteLine("Etiquetas");
+                foreach (var etiqueta in producto.Etiquetas)
+                {
+                    Console.WriteLine(etiqueta);
+                }
+
+                Console.WriteLine("Detalles:");
+                Console.WriteLine(producto.Detalles.Peso.);
+                Console.WriteLine("Dimensiones");
+                Console.WriteLine(producto.Detalles.Dimensiones.Alto);//aqui no se por que no lo toma
+                Console.WriteLine(producto.Detalles.Dimensiones.Hancho);
+                Console.WriteLine(producto.Detalles.Dimensiones.Profundidad);
+
+
+            }
 
 
         }
@@ -90,16 +137,7 @@ namespace PracticaJson
 
 
 
-        public class Ejercicio3
-        {
-            public string estadistica { get; set; }
-            public string equipo { get; set; }
-            public List<string> jugadores {  get; set; }//lista jugadores
-            public Ejercicio3()//la inicio
-            {
-                jugadores = new List<string>();
-            }
+       
             
         }
     }
-}
