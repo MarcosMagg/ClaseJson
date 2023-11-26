@@ -10,11 +10,8 @@ namespace PracticaJson
     internal class Detalles
     {
         public double Peso { get; set; }
-        public List<Dimensiones> Dimensiones { get; set; }
+        public Dimensiones Dimensiones { get; set; }//esto es un objeto, no un array
 
-        public Detalles()
-        {
-            Dimensiones = new List<Dimensiones>();
-        }
+       
     }
 }

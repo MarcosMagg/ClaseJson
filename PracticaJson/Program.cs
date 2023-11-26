@@ -84,7 +84,7 @@ namespace PracticaJson
             {
                 Console.WriteLine(producto.Nombre);
                 Console.WriteLine(producto.Precio);
-                Console.WriteLine(producto.Existencia);
+                Console.WriteLine(producto.Existencias);
                 Console.WriteLine(producto.DescuentoDisponible);
                 Console.WriteLine("Etiquetas");
                 foreach (var etiqueta in producto.Etiquetas)
@@ -93,7 +93,7 @@ namespace PracticaJson
                 }
 
                 Console.WriteLine("Detalles:");
-                Console.WriteLine(producto.Detalles.Peso.);
+                Console.WriteLine(producto.Detalles.Peso);
                 Console.WriteLine("Dimensiones");
                 Console.WriteLine(producto.Detalles.Dimensiones.Alto);//aqui no se por que no lo toma
                 Console.WriteLine(producto.Detalles.Dimensiones.Hancho);

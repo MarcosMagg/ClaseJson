@@ -11,7 +11,7 @@ namespace PracticaJson
     {
         public string Nombre { get; set; }
         public double Precio { get; set; }
-        public int Existencia { get; set; }
+        public int Existencias { get; set; }
 
         [JsonPropertyName("descuento_disponible")]
         public bool DescuentoDisponible { get; set; }
